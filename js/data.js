@@ -1,6 +1,6 @@
 export const timelineData = [
     {
-        title: 'Moderator for Adjuct Proffesor',
+        title: 'Moderator for Adjunct Professor',
         institution: 'Universitas Brawijaya',
         period: 'October 2025',
         image: 'assets/Screenshot 2025-11-18 075133.png',
@@ -79,3 +79,4 @@ export const skillsData = {
     labels: ['Microsoft', 'Python', 'Stata', 'Power BI'],
     values: [95, 85, 75, 70, 90, 80]
 };
+
