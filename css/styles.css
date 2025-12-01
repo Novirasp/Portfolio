@@ -1,0 +1,91 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #051e7c ; /* Background */
+    color: #bac0dc; /* Secondary text */
+}
+.nav-link {
+    position: relative;
+    transition: color 0.3s;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #FFC107; /* Link/Button */
+    transition: width 0.3s;
+}
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+    max-height: 400px;
+}
+@media (min-width: 768px) {
+    .chart-container {
+        height: 400px;
+    }
+}
+.modal {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.modal-content {
+    transition: transform 0.3s ease;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: -29px;
+    width: 14px;
+    height: 14px;
+    background-color: #FFC107; /* Link/Button */
+    z-index: 1;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 20px;
+}
+
+.timeline-img {
+    margin-left: -70px; /* Geser ke kiri supaya sebelum garis */
+}
+/* Hero Section Specific Styles */
+.hero-left {
+    background-color: #051e7c; /* Main Color */
+}
+.hero-right {
+    background-color: #bac0dc; /* Secondary Color */
+}
+
+/* Geometric Patterns */
+.pattern-dots-left {
+    background-image: radial-gradient(#051e7c 1px, transparent 1px); /* Main Color */
+    background-size: 10px 10px;
+    opacity: 0.3;
+}
+.pattern-lines-left {
+    background-image: linear-gradient(135deg, transparent 75%, #004e96 75%), linear-gradient(45deg, transparent 75%, #000068 75%); /* Main Color */
+    background-size: 20px 20px;
+    opacity: 0.3;
+}
+.pattern-dots-right {
+    background-image: radial-gradient(#bac0dc 1px, transparent 1px); /* Secondary Color */
+    background-size: 10px 10px;
+    opacity: 0.3;
+}
+.pattern-lines-right {
+    background-image: linear-gradient(135deg, transparent 75%, #217b7e 75%), linear-gradient(45deg, transparent 75%, #217b7e 75%); /* Secondary Color */
+    background-size: 20px 20px;
+    opacity: 0.3;
+}
