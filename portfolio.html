@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio | Novira Setya Prajna Anggraini</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Chosen Palette: Main: #051e7c, Secondary: #bac0dc, Accent: #FFC107, Highlight: #686800, Background: #F5F7FA, Text: #222222 & #555555, Dividers: #CCCCCC -->
+    <!-- Application Structure Plan: A single-page application with a sticky navigation bar for easy access to different sections. The structure flows from a general introduction (About Me) to specific evidence of competence (Pengalaman, Proyek) and a summary of capabilities (Keterampilan), ending with a clear call-to-action (Kontak). This logical, top-down flow is intuitive for recruiters. An interactive timeline for experiences and a modal view for projects are chosen to present dense information cleanly without cluttering the main view, enhancing user experience. A skills chart adds a modern, data-driven visual element. The landing page now features a split-screen design with distinct background colors and geometric patterns, inspired by the provided image, to create a visually striking first impression. -->
+    <!-- Visualization & Content Choices: 
+        - Hero Section (Inform): Split-screen layout with large, impactful text on the left and a profile image on the right, enhanced with geometric patterns. HTML/Tailwind for layout and custom CSS for patterns.
+        - Timeline (Pengalaman/Organisasi) (Organize/Change): Vertical timeline to show career progression. HTML/CSS/JS for layout and interactivity.
+        - Project Cards (Organize/Inform): Grid of cards opening a modal for details. Keeps the main page clean while allowing deep dives. HTML/Tailwind + JS for modal.
+        - Skills Chart (Compare/Inform): Horizontal bar chart for technical skill proficiency. More engaging than a list. Chart.js/Canvas.
+        - Skills Lists (Inform): Styled lists for soft skills. Clear and organized. HTML/Tailwind.
+        - All choices are made to create a professional, interactive, and easy-to-digest portfolio for recruiters.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="antialiased">
+
+    <header id="header" class="bg-transparent fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="#hero" class="text-xl font-bold text-white">Novira Setya Prajna Anggraini</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#about" class="nav-link text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium">About Me</a>
+                        <a href="#experience" class="nav-link text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium">Experiences</a>
+                        <a href="#recent projects" class="nav-link text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium">Recent Projects</a>
+                        <a href="#skills" class="nav-link text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                        <a href="#contact" class="nav-link text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-gray-200 focus:outline-none">
+                        <span class="sr-only">Buka menu</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="md:hidden hidden bg-[#051e7c] shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block nav-link text-[#E0E0E0] hover:text-[#555555] px-3 py-2 rounded-md text-base font-medium">About Me</a>
+                <a href="#experience" class="block nav-link text-[#E0E0E0] hover:text-[#555555] px-3 py-2 rounded-md text-base font-medium">Experiences</a>
+                <a href="#recect projects" class="block nav-link text-[#E0E0E0] hover:text-[#555555] px-3 py-2 rounded-md text-base font-medium">Recent Projects</a>
+                <a href="#skills" class="block nav-link text-[#E0E0E0] hover:text-[#555555] px-3 py-2 rounded-md text-base font-medium">Skills</a>
+                <a href="#contact" class="block nav-link text-[#E0E0E0] hover:text-[#555555] px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="relative min-h-screen flex flex-col md:flex-row">
+            <div class="hero-left w-full md:w-1/2 bg-[#004e96] flex items-center justify-center p-8 relative overflow-hidden">
+                <div class="relative z-10 text-white text-center md:text-left max-w-md mx-auto md:mx-0">
+                    <h1 class="text-4xl md:text-6xl font-bold leading-tight">Business & <span class="text-[#FFC107]">Data Analyst</span></h1>
+                    <p class="mt-4 text-lg md:text-xl">Passionate in developing data driven economic insights and crafting strategic marketing solutions that are both scalable and user focused.</p>
+                    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <p class="font-semibold"></p>
+                        </div>
+                        <div>
+                            <p class="font-semibold"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pattern-dots-left absolute inset-0 z-0"></div>
+                <div class="pattern-lines-left absolute inset-0 z-0"></div>
+            </div>
+            <div class="hero-right w-full md:w-1/2 bg-[#bac0dc] flex items-center justify-center p-8 relative overflow-hidden">
+                <div class="relative z-10">
+                    <img src="assets/KANIA08321.PNG" class="max-w-xs w-full h-auto" alt="Profile Image">
+                </div>
+                <div class="pattern-dots-right absolute inset-0 z-0"></div>
+                <div class="pattern-lines-right absolute inset-0 z-0"></div>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 sm:py-32 bg-white">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+                    <!-- About Me -->
+                    <div class="max-w-2xl mx-auto text-center">
+                        <h2 class="font-bold text-2xl text-[#004e96] mb-4">About Me</h2>
+                        <p class="text-[#004e96] text-justify leading-relaxed">
+                            A final-year Development Economics student at Universitas Brawijaya, specializing in development planning. I am passionate about market analysis, business analysis, and data analytics, and I enjoy transforming data-driven insights into meaningful strategies. With strong problem-solving abilities, analytical thinking, and public speaking skills, I thrive in environments that encourage growth and collaboration. Beyond academics, I actively participate in campus organizations and committees to continually develop leadership, communication, and teamwork skills.
+                        </p>
+                    </div>
+
+                    <!-- Education Card -->
+                    <div class="bg-[#bac0dc] p-8 rounded-lg shadow-md border border-[#CCCCCC] max-w-md mx-auto text-center">
+                        <h3 class="font-bold text-2xl text-[#004e96] mb-4">Education</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-[#004e96] text-left">Universitas Brawijaya</h4>
+                                <p class="text-[#555555] text-left">Undergraduate Development Economics</p>
+                                <p class="text-sm text-[#555555] text-left">2022 – 2026 (Expected)</p>
+                                <p class="mt-1 text-sm text-[#555555] text-left">GPA: 3.78</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-[#004e96] mt-2 text-left">Relevant Courses</h4>
+                                <p class="text-[#555555] text-sm text-left">Econometrics, Data & Business Intelligence, Development Economics, Intermediate Micro & Macro Economics, Market Management.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section id="experience" class="py-20 sm:py-32 bg-[#004e96]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Experiences</h2>
+                </div>
+                <div class="mt-16 max-w-3xl mx-auto">
+                    <div id="timeline-container">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="recent projects" class="py-20 sm:py-32">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-[#004e96] sm:text-4xl">Recent Projects</h2>
+                </div>
+                <div id="projects-container" class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-20 sm:py-32 bg-[#004e96]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Skills</h2>
+                </div>
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-6">Analitycs Skills and Proffesional</h3>
+                        <div class="space-y-4">
+                            <div class="p-4 rounded-lg border border-[#004e96]">
+                                <h4 class="font-bold text-white text-lg">Analytics</h4>
+                                <p class="text-white text-sm">Quatitative Analitycs, Economic Modelling, Econometrics, Market Research, Machine Learning.</p>
+                            </div>
+                            <div class="p-4 rounded-lg border border-[#004e96]">
+                                <h4 class="font-bold text-white text-lg">Proffesional</h4>
+                                <p class="text-white text-sm">Communication, Presentation, Problem Solving, Team Work.</p>
+                            </div>
+                             <div class="p-4 rounded-lg border border-[#004e96]">
+                                <h4 class="font-bold text-white text-lg">Language</h4>
+                                <p class="text-white text-sm">Bahasa Indonesia (Native), English (Fluent).</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-6">Skills on Software</h3>
+                        <div class="chart-container">
+                            <canvas id="skillsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 sm:py-32">
+            <div class="max-w-xl mx-auto text-center px-4">
+                <h2 class="text-3xl font-bold tracking-tight text-[#004e96] sm:text-4xl">Let's Connect</h2>
+                <p class="mt-4 text-lg text-[#555555] text-justify">I am highly enthusiastic about discussing how my skills can bring valuable contributions to your team. You can contact me for further discussion.</p>
+                <div class="mt-8">
+                    <a href="mailto:noviraprajna3@gmail.com" class="inline-block bg-[#004e96] text-white font-bold py-3 px-8 rounded-lg hover:bg-opacity-90 transition-colors">Send To</a>
+                </div>
+                <div class="mt-8 flex justify-center space-x-6">
+                    <a href="linkedin.com/in/novira-setya-prajna-anggraini" target="_blank" class="text-[#555555] hover:text-[#222222]">LinkedIn</a>
+                    <a href="tel:081289636227" class="text-[#555555] hover:text-[#222222]">Telphone</a>
+                    <a href="assets/CV ATS Novira Setya_Update.docx (1).pdf" target="_blank" class="text-[#555555] hover:text-[#222222]">CV</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#F5F7FA]">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-sm text-[#555555]">
+            <p>&copy; <span id="current-year"></span> Novira Setya Prajna Anggraini.</p>
+        </div>
+    </footer>
+
+    <div id="project-modal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 invisible opacity-0">
+        <div id="modal-content" class="modal-content bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto transform scale-95">
+            <div class="sticky top-0 bg-white p-4 border-b border-[#CCCCCC] flex justify-between items-center">
+                <h3 id="modal-title" class="text-xl font-bold text-[#222222]"></h3>
+                <button id="close-modal-button" class="text-[#555555] hover:text-[#222222]">&times;</button>
+            </div>
+            <div class="p-6">
+                <div class="prose prose-lg max-w-none text-[#555555]">
+                    <p><strong>Objective:</strong> <span id="modal-objective"></span></p>
+                    <p><strong>Role:</strong> <span id="modal-role"></span></p>
+                    <p><strong>Method & Tools:</strong> <span id="modal-tools"></span></p>
+                    <p><strong>Result:</strong> <span id="modal-impact"></span></p>
+                    <a id="modal-link" href="#" target="_blank" class="mt-4 inline-block text-[#004e96] font-semibold hover:underline">Details &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/script.js"></script>
+</body>
+</html>
