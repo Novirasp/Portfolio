@@ -3,52 +3,25 @@ import { timelineData, projectsData, skillsData } from './data.js';
 document.addEventListener('DOMContentLoaded', function () {
             
     const timelineContainer = document.getElementById('timeline-container');
-
     timelineData.forEach(item => {
         const div = document.createElement('div');
         div.className = 'timeline-item relative mb-10';
-
-        const pointsHTML = item.points
-            .map(point => `<li>${point}</li>`)
-            .join('');
+        
+        let pointsHTML = item.points.map(point => `<li>${point}</li>`).join('');
 
         div.innerHTML = `
             <div class="flex gap-6 items-start pl-2">
-
-                <!-- IMAGE + SOURCE -->
+                <img src="${item.image}" 
+                    class="${item.imageSize} rounded-lg object-cover shadow-md ${item.imageMargin}" />
                 <div>
-
-                <!-- IMAGE BOX -->
-                <div class="${item.imageSize} ${item.imageMargin} rounded-lg overflow-hidden shadow-md">
-                    <img src="${item.image}"
-                        alt="${item.title}"
-                        class="w-full h-full object-cover" />
+                    <h3 class="text-lg font-bold text-[#fcfafa]">${item.title}</h3>
+                    <p class="font-semibold text-[#FFC107]">${item.institution}</p>
+                    <p class="text-sm text-[#FFC107] mb-2">${item.period}</p>
+                    <ul class="list-disc list-inside text-[#fcfafa] space-y-1">${pointsHTML}</ul>
                 </div>
-
-                <!-- SOURCE (OPTIONAL) -->
-                ${item.source ? `
-                    <a href="${item.source.link}"
-                        target="_blank"
-                        class="block text-[11px] text-white/70 italic mt-1">
-                        ${item.source.text}
-                    </a>
-                ` : ''}
             </div>
-
-            <!-- CONTENT -->
-            <div>
-                <h3 class="text-lg font-bold text-[#fcfafa]">${item.title}</h3>
-                <p class="font-semibold text-[#FFC107]">${item.institution}</p>
-                <p class="text-sm text-[#FFC107] mb-2">${item.period}</p>
-                <ul class="list-disc list-inside text-[#fcfafa] space-y-1">
-                    ${pointsHTML}
-                </ul>
-            </div>
-
-        </div>
-    `;
-
-    timelineContainer.appendChild(div);
+        `;
+        timelineContainer.appendChild(div);
     });
 
     const projectsContainer = document.getElementById('projects-container');
@@ -86,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     beginAtZero: true,
                     max: 100,
                     ticks: {
-                        color: "#FFFFFF" // X colour
+                        color: "#FFFFFF" // warna angka sumbu X
                     },
                     grid: {
                         color: '#CCCCCC' /* Dividers */
@@ -94,11 +67,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 },
                 y: {
                     ticks: {
-                        color: "#FFFFFF", // <<-- Microsoft, Python, etc labels color
+                        color: "#FFFFFF", // <<-- Ubah warna label Microsoft, Python, dll
                         padding: 20,
                         font: {
                             size: 14,
-
                              weight: '600'
                         }
                     },
@@ -167,20 +139,20 @@ document.addEventListener('DOMContentLoaded', function () {
             header.classList.add('bg-white/80', 'backdrop-blur-sm', 'shadow-sm');
             // Change header text/link colors when scrolled down
             header.querySelector('a[href="#hero"]').classList.remove('text-white');
-            header.querySelector('a[href="#hero"]').classList.add('text-[#004e96]'); // Main text color
+            header.querySelector('a[href="#hero"]').classList.add('text-[#051e7c]'); // Main text color
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('text-white', 'hover:text-gray-200');
-                link.classList.add('text-[#004e96]', 'hover:text-[#222222]'); // Secondary text color
+                link.classList.add('text-[#051e7c]', 'hover:text-[#222222]'); // Secondary text color
             });
             document.querySelector('#mobile-menu-button').classList.remove('text-white');
             document.querySelector('#mobile-menu-button').classList.add('text-[#555555]'); // Secondary text color
         } else {
             header.classList.remove('bg-white/80', 'backdrop-blur-sm', 'shadow-sm');
             // Revert header text/link colors when at top
-            header.querySelector('a[href="#hero"]').classList.remove('text-[#004e96]');
+            header.querySelector('a[href="#hero"]').classList.remove('text-[#051e7c]');
             header.querySelector('a[href="#hero"]').classList.add('text-white');
             document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('text-[#004e96]', 'hover:text-[#222222]');
+                link.classList.remove('text-[#051e7c]', 'hover:text-[#222222]');
                 link.classList.add('text-white', 'hover:text-gray-200');
             });
             document.querySelector('#mobile-menu-button').classList.remove('text-[#555555]');
